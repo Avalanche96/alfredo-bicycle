@@ -1,0 +1,85 @@
+Google Data Analyst Capstone Project SQL Queries
+
+Casual's Most Popular Bike
+SELECT
+Count(Distinct ride_id) AS num_of_rides,
+rideable_type
+    FROM
+    `true-eye-376302.April_22_Bike_Trip_Data.April_22_Bike_Trip_Data`
+    WHERE member_casual =
+    "casual"
+    Group by
+    rideable_type;
+------------------------------------------------------------------------------------
+Member's Most Popular Bike
+SELECT
+Count(Distinct ride_id) AS num_of_rides,
+rideable_type
+    FROM
+    `true-eye-376302.April_22_Bike_Trip_Data.April_22_Bike_Trip_Data`
+    WHERE member_casual =
+    "member"
+    Group by
+    rideable_type;
+------------------------------------------------------------------------------------
+Casual's Most Popular Start Station
+ SELECT
+  COUNT(DISTINCT ride_id) AS num_of_rides,
+start_station_name
+    FROM
+    `true-eye-376302.April_22_Bike_Trip_Data.April_22_Bike_Trip_Data`
+    WHERE
+    member_casual =
+
+    'casual'
+    AND
+    start_station_name <> 'null'
+    Group By start_station_name
+    ORDER BY num_of_rides DESC
+    LIMIT 10;
+------------------------------------------------------------------------------------
+Casual's Most Popular End Station
+SELECT
+COUNT(DISTINCT ride_id) AS num_of_rides,
+end_station_name
+    FROM
+    `true-eye-376302.April_22_Bike_Trip_Data.April_22_Bike_Trip_Data`
+    WHERE
+    member_casual =
+    'casual'
+    AND
+    end_station_name <> 'null'
+    GROUP BY end_station_name
+    ORDER BY num_of_rides DESC
+    LIMIT 10;
+------------------------------------------------------------------------------------
+Member's Most Popular Start Station
+ SELECT
+  COUNT(DISTINCT ride_id) AS num_of_rides,
+start_station_name
+    FROM
+    `true-eye-376302.April_22_Bike_Trip_Data.April_22_Bike_Trip_Data`
+    WHERE
+    member_casual =
+
+    'member'
+    AND
+    start_station_name <> 'null'
+    Group By start_station_name
+    ORDER BY num_of_rides DESC
+    LIMIT 10;
+------------------------------------------------------------------------------------
+Member's Most Popular End Station
+SELECT
+COUNT(DISTINCT ride_id) AS num_of_rides,
+end_station_name
+    FROM
+    `true-eye-376302.April_22_Bike_Trip_Data.April_22_Bike_Trip_Data`
+    WHERE
+    member_casual =
+    'member'
+    AND
+    end_station_name <> 'null'
+    GROUP BY end_station_name
+    ORDER BY num_of_rides DESC
+    LIMIT 10;
